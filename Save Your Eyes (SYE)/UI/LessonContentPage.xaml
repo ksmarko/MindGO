@@ -1,0 +1,57 @@
+﻿<Page x:Class="LAP.UI.LessonContentPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:LAP.UI"
+      xmlns:MaterialUI="http://materialdesigninxaml.net/winfx/xaml/themes"
+      	FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+	TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+	TextElement.FontSize="16"
+      mc:Ignorable="d" 
+      Loaded="LoadData"
+      Title="LessonContentPage">
+
+    <Grid Background="White" >
+        <!--Mother plata-->
+        <StackPanel Orientation="Vertical" Name="fieldMotherPlate" Visibility="Hidden">
+            <ScrollViewer Height="650" Margin="0,0, 10, 0">
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Text="Материнська плата"  FontSize="30" HorizontalAlignment="Center" TextWrapping="Wrap" Margin="10, 20, 10, 0"/>
+                    <TextBlock Name="txt2_1_1" FontSize="18" TextWrapping="Wrap" Margin="20, 20, 20, 10"/>
+                    <Image Source="/LAP;component/Media/мат.jpg" Height="250" Width="350" Margin="0, 20, 0, 30" HorizontalAlignment="Center"/>
+
+                    <StackPanel Orientation="Horizontal" Margin="60, 10, 10,0" HorizontalAlignment="Left">
+                         <MaterialUI:PackIcon Kind="CheckboxBlankCircle" Foreground="Black" VerticalAlignment="Top"/>
+                         <TextBlock Margin="10, -5,0,0" Width="700" VerticalAlignment="Center" Name="txt2_1_2" FontSize="18" TextWrapping="Wrap" />
+                    </StackPanel>
+                    
+                    <StackPanel Orientation="Horizontal" Margin="60, 10, 10,0" HorizontalAlignment="Left">
+                        <MaterialUI:PackIcon Kind="CheckboxBlankCircle" Foreground="Black" VerticalAlignment="Top"/>
+                        <TextBlock Margin="10, -5,0,0" Width="700" VerticalAlignment="Center" Name="txt2_1_3" FontSize="18" TextWrapping="Wrap" />
+                    </StackPanel>
+                    <TextBlock Name="txt2_1_4" FontSize="18" TextWrapping="Wrap" Margin="20, 20, 10, 20"/>
+                </StackPanel>
+            </ScrollViewer>
+        </StackPanel>
+
+        <!--BIOS-->
+        <StackPanel Orientation="Vertical" Name="fieldBIOS" Visibility="Visible">
+            <ScrollViewer Height="650" Margin="0,0, 10, 0">
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Text="Чіп BIOS"  FontSize="30" HorizontalAlignment="Center" TextWrapping="Wrap" Margin="10, 20, 10, 0"/>
+                    <TextBlock Name="txt2_2_1" FontSize="18" TextWrapping="Wrap" Margin="20, 20, 20, 10"/>
+                    <Image Source="/LAP;component/Media/биос.jpg" Height="250" Width="350" Margin="0, 20, 0, 30" HorizontalAlignment="Center"/>
+                    <TextBlock Name="txt2_2_2" FontSize="18" TextWrapping="Wrap" Margin="20, 20, 10, 20"/>
+                </StackPanel>
+            </ScrollViewer>
+        </StackPanel>
+
+        <!--Page is not available-->
+        <StackPanel Orientation="Vertical" Name="fieldError" VerticalAlignment="Center" Visibility="Hidden">
+            <TextBlock Text="Уууууупсссс... Контент ще не приїхав..."  FontSize="30" HorizontalAlignment="Center" TextWrapping="Wrap" Margin="10, 20, 10, 0"/>
+            <TextBlock Text="Сторінка знаходиться в розробці"  FontSize="20" HorizontalAlignment="Center" TextWrapping="Wrap" Margin="10, 10, 10, 0"/>
+            <Image Source="/LAP;component/Media/023_Lazy_Simons_cat-550x550.png" Height="250" Width="350" Margin="0, 20, 0, 30" HorizontalAlignment="Center"/>
+        </StackPanel>
+    </Grid>
+</Page>

@@ -1,0 +1,58 @@
+﻿<Page
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:LAP.UI"
+      
+    xmlns:MaterialUI="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:Custom="http://metro.mahapps.com/winfx/xaml/controls" 
+    x:Class="LAP.UI.LoginPage"
+    FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+	TextElement.FontWeight="Medium"
+	TextElement.FontSize="14"
+    
+    mc:Ignorable="d">
+
+    <Grid
+        MaxWidth="350"
+		MaxHeight="400"
+        
+		MinWidth="300"
+        MinHeight="320">
+
+        <MaterialUI:Card
+			VerticalAlignment="Stretch"
+			Background="White">
+
+            <StackPanel Orientation="Vertical" Margin="10">
+                <Label Name="lblSignLog" Content="Реєстрація" HorizontalAlignment="Center" Margin="0,20,0,20" FontSize="20"/>
+
+                <Label Name="lblUserName" Content="Ім'я користувача" Margin="15, 20, 0, 0"/>
+                <TextBox Name="txtUserName" Margin="20, 0, 20, 0" VerticalAlignment="Center" MaxLength="30" MaxLines="1"/>
+
+                <Label Content="Електронна адреса:" Margin="15, 10, 20, 0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+                <TextBox Name="txtLogin"
+					     VerticalAlignment="Center"
+					     FontSize="16"
+					     TextAlignment="Left" 
+                         Margin="20, 0, 20, 0"
+                         MaxLength="30" 
+                         MaxLines="1"/>
+
+                <Label Content="Пароль:" Margin="15, 10, 0, 0" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+
+                <PasswordBox 
+                         Name="txtPass"
+					     VerticalAlignment="Center"
+					     FontSize="16"
+                    Margin="20, 0, 20, 0"
+                    MaxLength="30" />
+
+                <Button Name="btnSignLog" Margin="0, 25, 0, 10" Content="Зареєструватись" Click="LogIn" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="150"/>
+                <Label Name="lblNavigation" Content="Уже є аккаунт? Увійти" VerticalAlignment="Bottom" Margin="0,0,5,5" HorizontalAlignment="Right" Cursor="Hand" MouseLeftButtonDown="Label_MouseLeftButtonDown"/>
+            </StackPanel>
+        </MaterialUI:Card>
+    </Grid>
+</Page>

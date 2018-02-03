@@ -1,0 +1,100 @@
+﻿<Page x:Class="LAP.UI.IntroPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:LAP.UI"
+      xmlns:MaterialUI="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" 
+      	FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+	TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+	TextElement.FontSize="16"
+      Loaded="LoadData"
+      Title="LessonPage">
+
+    <Grid Background="White">
+        <!--Page is not available-->
+        <StackPanel Orientation="Vertical" Name="fieldError" VerticalAlignment="Center" Visibility="Hidden">
+            <TextBlock Text="Ця сторінка недоступна..."  FontSize="30" HorizontalAlignment="Center" TextWrapping="Wrap" Margin="10, 20, 10, 0"/>
+            <TextBlock Text="Виконай всі попередні тести і можеш повертатися"  FontSize="20" HorizontalAlignment="Center" TextWrapping="Wrap" Margin="10, 10, 10, 0"/>
+            <Image Source="/LAP;component/Media/023_Lazy_Simons_cat-550x550.png" Height="250" Width="350" Margin="0, 20, 0, 30" HorizontalAlignment="Center"/>
+        </StackPanel>
+
+        <!--What is a computer-->
+        <StackPanel Orientation="Vertical" Name="fieldWhatIsComputer" Visibility="Hidden">
+            <ScrollViewer Height="650" Margin="0,0, 10, 0">
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Text="Що таке комп'ютер?"  FontSize="30" HorizontalAlignment="Center" TextWrapping="Wrap" Margin="10, 20, 10, 0"/>
+                    <TextBlock Name="txt1_1" FontSize="18" TextWrapping="Wrap" Margin="20, 20, 20, 0"/>
+                    <Image Source="/LAP;component/Media/комп'ютер.jpg" Height="250" Width="350" Margin="0, 20, 0, 30" HorizontalAlignment="Center"/>
+                    <TextBlock Name="txt1_2" FontSize="18" TextWrapping="Wrap" Margin="20, 0, 10, 0"/>
+                    <StackPanel Orientation="Horizontal" Margin="80, 0, 0,0">
+                        <MaterialUI:PackIcon Kind="CheckboxBlankCircle" Foreground="Black" VerticalAlignment="Center"/>
+                        <TextBlock Margin="5, 0,0,0" VerticalAlignment="Center"  Text="Введення - передавання даних до комп'ютера" FontSize="18" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="80, 10, 0,0">
+                        <MaterialUI:PackIcon Kind="CheckboxBlankCircle" Foreground="Black" VerticalAlignment="Center"/>
+                        <TextBlock Margin="5, 0,0,0" VerticalAlignment="Center"  Text="Обробка - виконання операцій над даними" FontSize="18" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="80, 10, 0,0">
+                        <MaterialUI:PackIcon Kind="CheckboxBlankCircle" Foreground="Black" VerticalAlignment="Center"/>
+                        <TextBlock Margin="5, 0,0,0" VerticalAlignment="Center"  Text="Виведення - відображення результатів (передавання інформації користувачу" FontSize="18" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="80, 10, 0,0">
+                        <MaterialUI:PackIcon Kind="CheckboxBlankCircle" Foreground="Black" VerticalAlignment="Center"/>
+                        <TextBlock Margin="5, 0,0,0" VerticalAlignment="Center"  Text="Зберігання - зберігання даних, програм і результатів для подальшого використання" FontSize="18" />
+                    </StackPanel>
+                    <TextBlock Name="txt1_3" FontSize="18" TextWrapping="Wrap" Margin="20, 20, 10, 10"/>
+                    <Button Name="btnTest0" Click="OpenTest" Content="Пройти тест" Margin="0, 10, 20, 20" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+                </StackPanel>
+            </ScrollViewer>
+        </StackPanel>   
+        
+        <!--Основні елементи-->
+        <StackPanel Orientation="Vertical" Name="fieldBaseElements" Visibility="Visible">
+            <ScrollViewer Height="650" Margin="0,0, 10, 0">
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Text="Основні елементи комп'ютера"  FontSize="30" HorizontalAlignment="Center" TextWrapping="Wrap" Margin="10, 20, 10, 0"/>
+                    <TextBlock Text="Основні елементи комп'ютера – це ті елементи, без яких його робота неможлива. До таких елементів відносяться:" FontSize="18" TextWrapping="Wrap" Margin="20, 20, 20, 10"/>
+                    <StackPanel Orientation="Horizontal" Margin="80, 10, 0,0">
+                        <MaterialUI:PackIcon Kind="CheckboxBlankCircle" Foreground="Black" VerticalAlignment="Center"/>
+                        <TextBlock Margin="5, 0,0,0" VerticalAlignment="Center"  Text="Материнська плата" FontSize="18" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="80, 10, 0,0">
+                        <MaterialUI:PackIcon Kind="CheckboxBlankCircle" Foreground="Black" VerticalAlignment="Center"/>
+                        <TextBlock Margin="5, 0,0,0" VerticalAlignment="Center"  Text="Чіп BIOS" FontSize="18" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="80, 10, 0,0">
+                        <MaterialUI:PackIcon Kind="CheckboxBlankCircle" Foreground="Black" VerticalAlignment="Center"/>
+                        <TextBlock Margin="5, 0,0,0" VerticalAlignment="Center"  Text="Процесор" FontSize="18" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="80, 10, 0,0">
+                        <MaterialUI:PackIcon Kind="CheckboxBlankCircle" Foreground="Black" VerticalAlignment="Center"/>
+                        <TextBlock Margin="5, 0,0,0" VerticalAlignment="Center"  Text="Оперативно-запам'ятовуючий пристрій" FontSize="18" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="80, 10, 0,0">
+                        <MaterialUI:PackIcon Kind="CheckboxBlankCircle" Foreground="Black" VerticalAlignment="Center"/>
+                        <TextBlock Margin="5, 0,0,0" VerticalAlignment="Center"  Text="Жорсткий диск" FontSize="18" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="80, 10, 0,0">
+                        <MaterialUI:PackIcon Kind="CheckboxBlankCircle" Foreground="Black" VerticalAlignment="Center"/>
+                        <TextBlock Margin="5, 0,0,0" VerticalAlignment="Center"  Text="відеокарта" FontSize="18" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="80, 10, 0,0">
+                        <MaterialUI:PackIcon Kind="CheckboxBlankCircle" Foreground="Black" VerticalAlignment="Center"/>
+                        <TextBlock Margin="5, 0,0,0" VerticalAlignment="Center"  Text="Блок живлення" FontSize="18" />
+                    </StackPanel>
+                    <Image Source="/LAP;component/Media/склад.png" Height="250" Width="350" Margin="0, 20, 0, 30" HorizontalAlignment="Center"/>
+                    <TextBlock Text="Розберемо кожен з цих елементів детальніше" FontSize="18" TextWrapping="Wrap" Margin="20, 20, 10, 20"/>
+                </StackPanel>
+            </ScrollViewer>
+        </StackPanel>
+
+        <!--Page is not available-->
+        <StackPanel Orientation="Vertical" Name="fieldNoContent" VerticalAlignment="Center" Visibility="Hidden">
+            <TextBlock Text="Уууууупсссс... Контент ще не приїхав..."  FontSize="30" HorizontalAlignment="Center" TextWrapping="Wrap" Margin="10, 20, 10, 0"/>
+            <TextBlock Text="Сторінка знаходиться в розробці"  FontSize="20" HorizontalAlignment="Center" TextWrapping="Wrap" Margin="10, 10, 10, 0"/>
+            <Image Source="/LAP;component/Media/023_Lazy_Simons_cat-550x550.png" Height="250" Width="350" Margin="0, 20, 0, 30" HorizontalAlignment="Center"/>
+        </StackPanel>
+    </Grid>
+</Page>

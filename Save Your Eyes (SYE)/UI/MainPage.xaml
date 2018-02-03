@@ -1,0 +1,189 @@
+﻿<Page
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:LAP"
+      xmlns:col="clr-namespace:System.Collections;assembly=mscorlib" 
+      
+      xmlns:MaterialUI="http://materialdesigninxaml.net/winfx/xaml/themes"
+	
+	xmlns:System="clr-namespace:System;assembly=mscorlib" x:Class="LAP.UI.MainPage"
+      mc:Ignorable="d"
+	
+	FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+	TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+	TextElement.FontSize="16"
+      Loaded="LoadData"
+    MinWidth="875"
+	MinHeight="675">
+
+    <Grid Background="WhiteSmoke">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="5*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="51*"/>
+            <ColumnDefinition Width="124*"/>
+        </Grid.ColumnDefinitions>
+
+        <MaterialUI:Card Name="cardAccount" Height="100" Background="White" Grid.Column="0" Grid.Row="0" Margin="10, 5, 5, 5">
+            <Grid>
+                <Image Height="80" Width="80" Cursor="Hand" ToolTip="На головну сторінку" Margin="10,0,0,0" MouseDown="OpenMainPage" VerticalAlignment="Center" HorizontalAlignment="Left" Source="/LAP;component/Media/cat.jpg"/>
+                <StackPanel Orientation="Vertical" Margin="110, 0,0,0" VerticalAlignment="Center">
+                    <TextBlock Name="txtUserName" FontSize="22" Margin="0,10,0,10"/>
+                    <TextBlock Name="txtScore" FontSize="16" Foreground="Teal" FontWeight="Medium"/>
+                </StackPanel>
+                <MenuItem Header="Вихід" ToolTip="Вийти" FontWeight="Medium" Cursor="Hand" Click="LogOut" Margin="0,0,10,10" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
+            </Grid>
+        </MaterialUI:Card>
+
+        <!--Menu-->
+        <MaterialUI:Card Name="cardMenu" Background="White" VerticalAlignment="Stretch" Grid.Column="0" Margin="10, 0,5, 10" Grid.Row="1">
+            <StackPanel Orientation="Vertical">
+                <Label Content="Структура курсу" FontWeight="Medium" FontSize="20" Margin="10,10,0,10"/>
+                <ScrollViewer  Margin="5,0,5,5"   Height="480" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+                    <StackPanel Orientation="Vertical" Margin="0,0,0,10" x:Name="lstStruct" CanVerticallyScroll="True">
+                        
+                        <Expander Name="exp0" Width="500" Background="White" Expanded="ExpanderClick" Collapsed="ExpanderClick" MouseEnter="lstItemSelected" MouseLeave="lstItemUnselected">
+                            <Expander.Header>
+                                <StackPanel Orientation="Horizontal">
+                                    <MaterialUI:PackIcon Name="ico0" Kind="CheckboxBlankCircle" Foreground="Teal" VerticalAlignment="Center" Margin="0, 0, 5, 0"/>
+                                    <TextBlock Text="Що таке комп'ютер?" FontWeight="Medium" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </Expander.Header>
+                        </Expander>
+
+                        <Expander Name="exp1" Width="360" Background="White" IsExpanded="False" HorizontalAlignment="Left" Expanded="ExpanderClick" Collapsed="ExpanderClick"  MouseEnter="lstItemSelected" MouseLeave="lstItemUnselected">
+                            <Expander.Header>
+                                <StackPanel Orientation="Horizontal">
+                                    <MaterialUI:PackIcon Name="ico1" Kind="CheckboxBlankCircle" Foreground="Teal" VerticalAlignment="Center" Margin="0, 0, 5, 0"/>
+                                    <TextBlock Text="Основні елементи комп'ютера" FontWeight="Medium" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </Expander.Header>
+                            <Expander.Content>
+                                <ListBox Name="lst1" Margin="30, 0, 0, 0" FontWeight="Medium" SelectionChanged="SelectionChanged">
+                                    <ListBoxItem Content="Материнська плата"/>
+                                    <ListBoxItem Content="Чіп BIOS"/>
+                                    <ListBoxItem Content="Процесор"/>
+                                    <ListBoxItem Content="ОЗП"/>
+                                    <ListBoxItem Content="Жорсткий диск"/>
+                                    <ListBoxItem Content="Відеокарта"/>
+                                    <ListBoxItem Content="Блок живлення"/>
+                                    <ListBoxItem Content="Пройти тест"/>
+                                </ListBox>
+                            </Expander.Content>
+                        </Expander>
+
+                        <Expander Name="exp2" Width="360" Background="White" IsExpanded="False" HorizontalAlignment="Left" Expanded="ExpanderClick" Collapsed="ExpanderClick"  MouseEnter="lstItemSelected" MouseLeave="lstItemUnselected">
+                            <Expander.Header>
+                                <StackPanel Orientation="Horizontal">
+                                    <MaterialUI:PackIcon Name="ico2" Kind="CheckboxBlankCircle" Foreground="Black" VerticalAlignment="Center" Margin="0, 0, 5, 0"/>
+                                    <TextBlock Text="Допоміжні елементи" FontWeight="Medium" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </Expander.Header>
+                            <Expander.Content>
+                                <ListBox Name="lst2" FontWeight="Medium" Margin="30, 0, 0, 0" IsEnabled="False">
+                                    <ListBoxItem Content="Пристрої вводу"/>
+                                    <ListBoxItem Content="Пристрої виводу"/>
+                                    <ListBoxItem Content="Мережева плата"/>
+                                    <ListBoxItem Content="Звукова карта"/>
+                                    <ListBoxItem Content="Пройти тест"/>
+                                </ListBox>
+                            </Expander.Content>
+                        </Expander>
+
+                        <Expander Name="exp3" Width="500" Background="White" IsExpanded="False" HorizontalAlignment="Left" Expanded="ExpanderClick" Collapsed="ExpanderClick"  MouseEnter="lstItemSelected" MouseLeave="lstItemUnselected">
+                            <Expander.Header>
+                                <StackPanel Orientation="Horizontal">
+                                    <MaterialUI:PackIcon Kind="CheckboxBlankCircle" Foreground="Gray" VerticalAlignment="Center" Margin="0, 0, 5, 0"/>
+                                    <TextBlock Text="Розміщення елементів" FontWeight="Medium" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </Expander.Header>
+                        </Expander>
+
+                        <Expander Name="exp4" Width="500" Background="White" IsExpanded="False" HorizontalAlignment="Left" Expanded="ExpanderClick" Collapsed="ExpanderClick"  MouseEnter="lstItemSelected" MouseLeave="lstItemUnselected">
+                            <Expander.Header>
+                                <StackPanel Orientation="Horizontal">
+                                    <MaterialUI:PackIcon Kind="CheckboxBlankCircle" Foreground="Gray" VerticalAlignment="Center" Margin="0, 0, 5, 0"/>
+                                    <TextBlock Text="Збираємо комп'ютер з нуля" FontWeight="Medium" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </Expander.Header>
+                        </Expander>
+
+                        <Expander Name="exp5" Width="500" Background="White" IsExpanded="False" HorizontalAlignment="Left" Expanded="ExpanderClick" Collapsed="ExpanderClick"  MouseEnter="lstItemSelected" MouseLeave="lstItemUnselected">
+                            <Expander.Header>
+                                <StackPanel Orientation="Horizontal">
+                                    <MaterialUI:PackIcon Kind="CheckboxBlankCircle" Foreground="Gray" VerticalAlignment="Center" Margin="0, 0, 5, 0"/>
+                                    <TextBlock Text="Екзамен" FontWeight="Medium" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </Expander.Header>
+                        </Expander>
+
+                        <Expander Name="exp6" Width="500" Background="White" IsExpanded="False" HorizontalAlignment="Left" Expanded="ExpanderClick" Collapsed="ExpanderClick"  MouseEnter="lstItemSelected" MouseLeave="lstItemUnselected">
+                            <Expander.Header>
+                                <StackPanel Orientation="Horizontal">
+                                    <MaterialUI:PackIcon Kind="Gift" Foreground="Gray" VerticalAlignment="Center" Margin="0, 0, 5, 0"/>
+                                    <TextBlock Text="Сертифікат" FontWeight="Medium" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </Expander.Header>
+                        </Expander>
+                    </StackPanel>
+                </ScrollViewer>
+            </StackPanel>
+        </MaterialUI:Card>
+
+        <MaterialUI:Card Background="White" VerticalAlignment="Stretch" Grid.Column="1" Margin="0, 5, 5, 10" Grid.RowSpan="2">
+            <ScrollViewer Height="650" Margin="0,0, 10, 0">
+            <StackPanel Orientation="Vertical">
+                <TextBlock Name="txtHello" Text="Привіт, друже!"  FontSize="35" HorizontalAlignment="Center" TextWrapping="Wrap" Margin="10, 20, 10, 0"/>
+                    <TextBlock Name="txtHello2"  Text="Вітаю тебе на курсі &quot;Будова комп'ютера&quot;"  FontSize="35" HorizontalAlignment="Center" TextWrapping="Wrap" Margin="10, 5, 10, 0"/>
+                    <Image Name="imgHello" Source="/LAP;component/Media/сat2.png" Height="250" Width="350" Margin="0, 20, 0, 0" HorizontalAlignment="Center"/>
+                <TextBlock Name="txtIntroContent" FontSize="18" TextWrapping="Wrap" Margin="20, 0, 10, 0"/>
+                    <StackPanel Orientation="Horizontal" Margin="80, 10, 0,0">
+                        <MaterialUI:PackIcon Kind="CheckboxBlankCircleOutline" Foreground="Teal" VerticalAlignment="Center"/>
+                        <TextBlock Margin="5, 0,0,0" VerticalAlignment="Center" Text="Твоя поточна позиція. Все, що вище - уже пройдене, що нижче - ще попереду" FontSize="18" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="80, 10, 0,0">
+                        <MaterialUI:PackIcon Kind="CheckboxBlankCircle" Foreground="Teal" VerticalAlignment="Center"/>
+                        <TextBlock Margin="5, 0,0,0" VerticalAlignment="Center"  Text="Пройдений етап. Можеш повертатися сюди для повторення або уточнення матеріалу" FontSize="18" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="80, 10, 0,0">
+                        <MaterialUI:PackIcon Kind="CheckboxBlankCircle" Foreground="Black" VerticalAlignment="Center"/>
+                        <TextBlock Margin="5, 0,0,0" VerticalAlignment="Center"  Text="Недоступний етап. Для його відкриття необхідно здати тести попередніх рівнів" FontSize="18" />
+                    </StackPanel>
+                    <TextBlock Text="Бажаю успіхів!"  FontSize="35" HorizontalAlignment="Center" TextWrapping="Wrap" Margin="10, 30, 10, 30"/>
+                </StackPanel>
+            </ScrollViewer>
+        </MaterialUI:Card>
+
+        <Frame 
+            x:Name="LessonContentUI" 
+            Source="/LAP;component/UI/LessonContentPage.xaml" 
+            Margin="15, 15, 15, 25" 
+            Visibility="Hidden" 
+            IsEnabled="False" 
+            HorizontalContentAlignment="Center" 
+            Grid.Column="1" Grid.RowSpan="2" />
+
+        <Frame 
+            x:Name="TestContentUI" 
+            Source="/LAP;component/UI/TestPage.xaml" 
+            Margin="15, 15, 15, 25" 
+            Visibility="Hidden" 
+            IsEnabled="False" 
+            HorizontalContentAlignment="Center" 
+            Grid.Column="1" Grid.RowSpan="2" />
+
+        <Frame 
+            x:Name="IntroUI" 
+            Source="/LAP;component/UI/IntroPage.xaml" 
+            Margin="15, 15, 15, 25" 
+            Visibility="Hidden" 
+            IsEnabled="False" 
+            HorizontalContentAlignment="Center" 
+            Grid.Column="1" Grid.RowSpan="2" />
+
+    </Grid>
+</Page>
